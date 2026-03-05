@@ -3,77 +3,105 @@ import json
 import time
 import random
 import re
+import os
+import hashlib
 from datetime import datetime
 
-# ================= 核心配置：全品牌、全渠道、备选源 =================
-BRANDS = ["TECNO", "Infinix", "Xiaomi", "Huawei", "Samsung", "Apple"]
+# ================= 工业级配置：10大品牌 + 6大渠道 =================
+BRANDS = ["TECNO", "Infinix", "Xiaomi", "Huawei", "Samsung", "Apple", "Redmi", "Realme", "Honor", "Lenovo"]
 CHANNELS = ["dns", "mvideo", "citilink", "ozon", "wildberries", "yandex"]
-# 备选数据源：当官网 403 封锁时，从比价聚合器提取参考价
-FALLBACK_SOURCES = ["https://price.ru/search/?query=", "https://www.aport.ru/search/?q="]
 
-class RU_Intelligence_Pro:
+class RUMarketDragonV20:
     def __init__(self):
         self.master_data = {}
         self.timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
-        self.ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+        
+    def _get_mutated_headers(self):
+        """核心对抗：俄系 A-Parser 随机字典序变异"""
+        uas = [
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0"
+        ]
+        headers = {
+            "User-Agent": random.choice(uas),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8",
+            "X-Forwarded-For": f"185.{random.randint(1,255)}.{random.randint(1,255)}.{random.randint(1,255)}",
+            "DNT": "1",
+            "Connection": "keep-alive"
+        }
+        # 乱序变异逻辑（对抗 WAF 签名）
+        h_list = list(headers.items())
+        random.shuffle(h_list)
+        return dict(h_list)
 
-    def get_spec(self, name):
-        """精准提取配置：如 8/128, 12/256"""
-        match = re.search(r'(\d+)[\s/+]?(\d+)\s?(?:GB|ГБ)', name, re.I)
-        return f"{match.group(1)}/{match.group(2)}" if match else "STD"
-
-    def fetch_fallback(self, brand, model):
-        """备选方案：抓取比价网平均价"""
-        search_query = f"{brand} {model}"
+    def solve_sku(self, name, price, brand, tag):
+        """语义解析：规格识别 + MD5 哈希去重"""
         try:
-            time.sleep(random.uniform(5, 8))
-            resp = requests.get(FALLBACK_SOURCES[0] + search_query, headers={'User-Agent': self.ua}, timeout=15)
-            prices = re.findall(r'(\d+[\s\d]*)\s?₽', resp.text)
-            if prices:
-                vals = sorted([int(p.replace(" ", "")) for p in prices if int(p.replace(" ", "")) > 8000])
-                return vals[len(vals)//2] if vals else 0
-        except: return 0
-        return 0
+            p_val = int(re.sub(r'[^\d]', '', str(price)))
+            if p_val < 8500: return 
 
-    def validate_logic(self, prices_dict, brand, model):
-        """核心验证：交叉对比 6 渠道 + 剔除离群低价"""
-        raw_prices = [p for p in prices_dict.values() if p > 8000]
-        
-        # 如果主流渠道全军覆没（被封锁），启用备选参考价
-        if not raw_prices:
-            ref_price = self.fetch_fallback(brand, model)
-            if ref_price > 0:
-                return "⚠ 官网封锁(采用比价网参考价)", ref_price, ref_price
-            return "❌ 暂无有效数据", 0, 0
+            # 规格提取 (RAM/ROM)
+            spec_m = re.search(r'(\d+[\s/+]?(\d+GB|\d+TB|\d+ГБ))', name, re.I)
+            spec = spec_m.group(0).upper().replace(" ", "") if spec_m else "STD"
+            model = name.upper().replace("ПЛАНШЕТ", "").replace(brand.upper(), "").split('(')[0].strip()[:35]
+            
+            # 生成唯一标识符
+            sku_id = hashlib.md5(f"{brand}{model}{spec}".encode()).hexdigest()
 
-        # 多方验证：剔除比均价低 30% 以上的虚假低价
-        avg = sum(raw_prices) / len(raw_prices)
-        valid_prices = [p for p in raw_prices if p > avg * 0.7]
-        
-        status = "✅ 多方验证通过" if len(valid_prices) >= 2 else "🔍 单源核校"
-        best = min(valid_prices) if valid_prices else min(raw_prices)
-        return status, best, (0 if not raw_prices else min(raw_prices))
+            if sku_id not in self.master_data:
+                self.master_data[sku_id] = {
+                    "brand": brand, "model": model, "spec": spec,
+                    "prices": {ch: 0 for ch in CHANNELS},
+                    "best": p_val, "avg": 0, "strategy": tag, "id": sku_id
+                }
+            
+            # 6 渠道对撞逻辑
+            n_low = name.lower()
+            for ch in CHANNELS:
+                if ch in n_low:
+                    curr = self.master_data[sku_id]["prices"][ch]
+                    if curr == 0 or p_val < curr:
+                        self.master_data[sku_id]["prices"][ch] = p_val
+            
+            # 动态底价计算
+            actives = [v for v in self.master_data[sku_id]["prices"].values() if v > 0]
+            self.master_data[sku_id]["best"] = min(actives)
+            self.master_data[sku_id]["avg"] = sum(actives) / len(actives)
+        except: pass
 
     def run(self):
-        # 此处模拟全渠道抓取后的对齐逻辑
-        # 实际部署时，脚本会循环请求 6 个渠道的搜索结果
-        # 我们以核心 SKU 为 Key 进行对齐
-        results = []
-        
-        # 模拟一条完整的 TECNO 数据作为结构示例
-        sample_item = {
-            "brand": "TECNO", "model": "Megapad 2", "spec": "12/256",
-            "prices": {"dns": 28990, "mvideo": 29990, "citilink": 29490, "ozon": 0, "wildberries": 0, "yandex": 28500, "fallback": 0}
-        }
-        
-        status, best, _ = self.validate_logic(sample_item['prices'], "TECNO", "Megapad 2")
-        sample_item['status'] = status
-        sample_item['best_price'] = best
-        sample_item['update'] = self.timestamp
-        results.append(sample_item)
+        # 增量持久化检查
+        if os.path.exists('data.json'):
+            try:
+                with open('data.json', 'r', encoding='utf-8') as f:
+                    self.master_data = json.load(f).get('raw_dict', {})
+            except: pass
 
+        session = requests.Session()
+        for brand in BRANDS:
+            print(f"[*] [V20 Final] 正在穿透品牌: {brand}")
+            # 需求：强制 10 页深度探测，绝不减料
+            for p in range(1, 11):
+                try:
+                    url = f"https://price.ru/search/?query=planshet+{brand.lower()}&page={p}"
+                    # 拟人化指数级退避
+                    time.sleep(random.uniform(25, 45))
+                    r = session.get(url, headers=self._get_mutated_headers(), timeout=50)
+                    if "captcha" in r.text.lower(): break
+                    items = re.findall(r'title="(.*?)".*?price">(\d+[\s\d]*)', r.text, re.S)
+                    if not items: break
+                    for n, pr in items: self.solve_sku(n, pr, brand, f"P{p}")
+                except: continue
+            self.save_checkpoint()
+
+    def save_checkpoint(self):
+        output = sorted(list(self.master_data.values()), key=lambda x: (x['brand'], x['best']))
         with open('data.json', 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=2)
+            json.dump({
+                "items": output, "raw_dict": self.master_data, 
+                "update": self.timestamp, "sku_count": len(output)
+            }, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
-    RU_Intelligence_Pro().run()
+    RUMarketDragonV20().run()
