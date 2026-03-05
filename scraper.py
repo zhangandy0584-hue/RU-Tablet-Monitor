@@ -1,59 +1,56 @@
 import requests
 import json
 import time
-import re  # 修复：增加了缺失的正则模块
+import random
+import re
+from datetime import datetime
 
-# 待监控的清单
-MONITOR_LIST = [
-    {
-        "brand": "TECNO",
-        "model": "Megapad 2",
-        "spec": "12/256",
-        "urls": {
-            "dns": "https://www.dns-shop.ru/product/2aab3723b463d21a/",
-            "yandex": "https://market.yandex.ru/" 
+# 监控目标：品牌和价格区间（过滤配件）
+BRANDS = ["TECNO", "Infinix", "Xiaomi", "Huawei", "Samsung", "Apple"]
+MIN_PRICE = 8000   # 低于8000卢布通常是配件
+MAX_PRICE = 180000 # 高于18w通常是异常数据
+
+class RUMarketIntelligence:
+    def __init__(self):
+        self.results = []
+        self.timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+        self.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept-Language': 'ru-RU,ru;q=0.9'
         }
-    }
-]
 
-def get_price_dns(url):
-    try:
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-        resp = requests.get(url, headers=headers, timeout=15)
-        # 修复：更鲁棒的价格提取逻辑
-        price_match = re.search(r'"price":(\d+)', resp.text)
-        if price_match:
-            return int(price_match.group(1))
-        return None
-    except Exception as e:
-        print(f"DNS抓取失败: {e}")
-        return None
+    def fetch_dns(self, brand):
+        """抓取 DNS 渠道数据"""
+        search_url = f"https://www.dns-shop.ru/search/?q=planshet+{brand.lower()}"
+        try:
+            # 随机延迟 5-10 秒，模拟真人操作
+            time.sleep(random.uniform(5, 10))
+            resp = requests.get(search_url, headers=self.headers, timeout=30)
+            if resp.status_code != 200: return
+            
+            # 使用正则表达式精准定位型号和价格
+            raw_items = re.findall(r'data-product-title="(.*?)".*?data-product-price="(\d+)"', resp.text)
+            for name, price in raw_items:
+                p_val = int(price)
+                if MIN_PRICE < p_val < MAX_PRICE:
+                    self.results.append({
+                        "brand": brand,
+                        "model": name.replace("Планшет ", "").strip()[:30],
+                        "dns": p_val,
+                        "source": "DNS"
+                    })
+        except Exception as e:
+            print(f"DNS {brand} 抓取跳过: {e}")
 
-def calibrate_data(raw_data):
-    prices = [v for k, v in raw_data.items() if v]
-    if not prices: return {k: {"price": v, "status": "No Data"} for k, v in raw_data.items()}
-    
-    avg = sum(prices) / len(prices)
-    calibrated = {}
-    for channel, price in raw_data.items():
-        if price and (price < avg * 0.7 or price > avg * 1.3):
-            calibrated[channel] = {"price": price, "status": "Suspect"}
-        else:
-            calibrated[channel] = {"price": price, "status": "Valid"}
-    return calibrated
+    def run(self):
+        for brand in BRANDS:
+            print(f"正在扫描: {brand}...")
+            self.fetch_dns(brand)
+        
+        # 保存为 data.json
+        with open('data.json', 'w', encoding='utf-8') as f:
+            json.dump({"items": self.results, "last_update": self.timestamp}, f, ensure_ascii=False, indent=2)
 
-# 运行逻辑
 if __name__ == "__main__":
-    final_output = []
-    for item in MONITOR_LIST:
-        raw_prices = {
-            "dns": get_price_dns(item["urls"]["dns"]),
-            "yandex": None # 占位
-        }
-        item["calibrated"] = calibrate_data(raw_prices)
-        item["last_update"] = time.strftime("%Y-%m-%d %H:%M:%S")
-        final_output.append(item)
-
-    with open('data.json', 'w', encoding='utf-8') as f:
-        json.dump(final_output, f, ensure_ascii=False, indent=2)
-    print("数据生成成功: data.json")
+    bot = RUMarketIntelligence()
+    bot.run()
