@@ -1,4 +1,19 @@
-{
-  "items": [],
-  "last_update": "2026-03-05 19:41"
-}
+[
+  {
+    "brand": "TECNO",
+    "model": "Megapad 2",
+    "spec": "12/256",
+    "prices": {
+      "dns": 28990,
+      "mvideo": 29990,
+      "citilink": 29490,
+      "ozon": 0,
+      "wildberries": 0,
+      "yandex": 28500,
+      "fallback": 0
+    },
+    "status": "✅ 多方验证通过",
+    "best_price": 28500,
+    "update": "2026-03-05 19:54"
+  }
+]
