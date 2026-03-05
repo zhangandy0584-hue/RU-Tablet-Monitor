@@ -1,522 +1,202 @@
 {
     "TECNO": [
         {
-            "model": "TECNO Tablet Pro Gen-2026",
-            "price_rub": 93886,
-            "update_time": "2026-03-05 21:41:35"
+            "model": "TECNO Pad Pro 2026 Edition V1",
+            "price_rub": "22,186 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "TECNO Tablet Pro Gen-2026",
-            "price_rub": 49893,
-            "update_time": "2026-03-05 21:41:39"
+            "model": "TECNO Pad Pro 2026 Edition V2",
+            "price_rub": "56,273 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "TECNO Tablet Pro Gen-2026",
-            "price_rub": 35649,
-            "update_time": "2026-03-05 21:41:42"
-        },
-        {
-            "model": "TECNO Tablet Pro Gen-2026",
-            "price_rub": 21555,
-            "update_time": "2026-03-05 21:41:47"
-        },
-        {
-            "model": "TECNO Tablet Pro Gen-2026",
-            "price_rub": 85321,
-            "update_time": "2026-03-05 21:41:50"
-        },
-        {
-            "model": "TECNO Tablet Pro Gen-2026",
-            "price_rub": 71371,
-            "update_time": "2026-03-05 21:41:53"
-        },
-        {
-            "model": "TECNO Tablet Pro Gen-2026",
-            "price_rub": 26803,
-            "update_time": "2026-03-05 21:41:56"
-        },
-        {
-            "model": "TECNO Tablet Pro Gen-2026",
-            "price_rub": 90649,
-            "update_time": "2026-03-05 21:42:01"
-        },
-        {
-            "model": "TECNO Tablet Pro Gen-2026",
-            "price_rub": 62852,
-            "update_time": "2026-03-05 21:42:05"
-        },
-        {
-            "model": "TECNO Tablet Pro Gen-2026",
-            "price_rub": 82733,
-            "update_time": "2026-03-05 21:42:08"
+            "model": "TECNO Pad Pro 2026 Edition V3",
+            "price_rub": "64,659 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         }
     ],
     "Infinix": [
         {
-            "model": "Infinix Tablet Pro Gen-2026",
-            "price_rub": 78222,
-            "update_time": "2026-03-05 21:42:12"
+            "model": "Infinix Pad Pro 2026 Edition V1",
+            "price_rub": "52,894 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Infinix Tablet Pro Gen-2026",
-            "price_rub": 84955,
-            "update_time": "2026-03-05 21:42:15"
+            "model": "Infinix Pad Pro 2026 Edition V2",
+            "price_rub": "41,935 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Infinix Tablet Pro Gen-2026",
-            "price_rub": 84657,
-            "update_time": "2026-03-05 21:42:18"
-        },
-        {
-            "model": "Infinix Tablet Pro Gen-2026",
-            "price_rub": 81866,
-            "update_time": "2026-03-05 21:42:22"
-        },
-        {
-            "model": "Infinix Tablet Pro Gen-2026",
-            "price_rub": 42767,
-            "update_time": "2026-03-05 21:42:27"
-        },
-        {
-            "model": "Infinix Tablet Pro Gen-2026",
-            "price_rub": 70654,
-            "update_time": "2026-03-05 21:42:31"
-        },
-        {
-            "model": "Infinix Tablet Pro Gen-2026",
-            "price_rub": 85283,
-            "update_time": "2026-03-05 21:42:34"
-        },
-        {
-            "model": "Infinix Tablet Pro Gen-2026",
-            "price_rub": 60834,
-            "update_time": "2026-03-05 21:42:38"
-        },
-        {
-            "model": "Infinix Tablet Pro Gen-2026",
-            "price_rub": 20696,
-            "update_time": "2026-03-05 21:42:41"
-        },
-        {
-            "model": "Infinix Tablet Pro Gen-2026",
-            "price_rub": 94897,
-            "update_time": "2026-03-05 21:42:44"
+            "model": "Infinix Pad Pro 2026 Edition V3",
+            "price_rub": "74,840 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         }
     ],
     "Xiaomi": [
         {
-            "model": "Xiaomi Tablet Pro Gen-2026",
-            "price_rub": 64326,
-            "update_time": "2026-03-05 21:42:47"
+            "model": "Xiaomi Pad Pro 2026 Edition V1",
+            "price_rub": "38,642 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Xiaomi Tablet Pro Gen-2026",
-            "price_rub": 46044,
-            "update_time": "2026-03-05 21:42:51"
+            "model": "Xiaomi Pad Pro 2026 Edition V2",
+            "price_rub": "25,405 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Xiaomi Tablet Pro Gen-2026",
-            "price_rub": 47956,
-            "update_time": "2026-03-05 21:42:54"
-        },
-        {
-            "model": "Xiaomi Tablet Pro Gen-2026",
-            "price_rub": 50600,
-            "update_time": "2026-03-05 21:42:58"
-        },
-        {
-            "model": "Xiaomi Tablet Pro Gen-2026",
-            "price_rub": 31654,
-            "update_time": "2026-03-05 21:43:03"
-        },
-        {
-            "model": "Xiaomi Tablet Pro Gen-2026",
-            "price_rub": 81775,
-            "update_time": "2026-03-05 21:43:08"
-        },
-        {
-            "model": "Xiaomi Tablet Pro Gen-2026",
-            "price_rub": 41048,
-            "update_time": "2026-03-05 21:43:10"
-        },
-        {
-            "model": "Xiaomi Tablet Pro Gen-2026",
-            "price_rub": 33341,
-            "update_time": "2026-03-05 21:43:13"
-        },
-        {
-            "model": "Xiaomi Tablet Pro Gen-2026",
-            "price_rub": 34777,
-            "update_time": "2026-03-05 21:43:16"
-        },
-        {
-            "model": "Xiaomi Tablet Pro Gen-2026",
-            "price_rub": 92034,
-            "update_time": "2026-03-05 21:43:19"
+            "model": "Xiaomi Pad Pro 2026 Edition V3",
+            "price_rub": "32,847 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         }
     ],
     "Huawei": [
         {
-            "model": "Huawei Tablet Pro Gen-2026",
-            "price_rub": 21260,
-            "update_time": "2026-03-05 21:43:22"
+            "model": "Huawei Pad Pro 2026 Edition V1",
+            "price_rub": "46,168 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Huawei Tablet Pro Gen-2026",
-            "price_rub": 69083,
-            "update_time": "2026-03-05 21:43:26"
+            "model": "Huawei Pad Pro 2026 Edition V2",
+            "price_rub": "50,581 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Huawei Tablet Pro Gen-2026",
-            "price_rub": 92836,
-            "update_time": "2026-03-05 21:43:31"
-        },
-        {
-            "model": "Huawei Tablet Pro Gen-2026",
-            "price_rub": 84215,
-            "update_time": "2026-03-05 21:43:34"
-        },
-        {
-            "model": "Huawei Tablet Pro Gen-2026",
-            "price_rub": 42743,
-            "update_time": "2026-03-05 21:43:37"
-        },
-        {
-            "model": "Huawei Tablet Pro Gen-2026",
-            "price_rub": 62127,
-            "update_time": "2026-03-05 21:43:41"
-        },
-        {
-            "model": "Huawei Tablet Pro Gen-2026",
-            "price_rub": 58130,
-            "update_time": "2026-03-05 21:43:44"
-        },
-        {
-            "model": "Huawei Tablet Pro Gen-2026",
-            "price_rub": 91636,
-            "update_time": "2026-03-05 21:43:47"
-        },
-        {
-            "model": "Huawei Tablet Pro Gen-2026",
-            "price_rub": 52511,
-            "update_time": "2026-03-05 21:43:52"
-        },
-        {
-            "model": "Huawei Tablet Pro Gen-2026",
-            "price_rub": 63369,
-            "update_time": "2026-03-05 21:43:55"
+            "model": "Huawei Pad Pro 2026 Edition V3",
+            "price_rub": "64,807 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         }
     ],
     "Samsung": [
         {
-            "model": "Samsung Tablet Pro Gen-2026",
-            "price_rub": 45086,
-            "update_time": "2026-03-05 21:44:00"
+            "model": "Samsung Pad Pro 2026 Edition V1",
+            "price_rub": "58,328 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Samsung Tablet Pro Gen-2026",
-            "price_rub": 86189,
-            "update_time": "2026-03-05 21:44:03"
+            "model": "Samsung Pad Pro 2026 Edition V2",
+            "price_rub": "31,583 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Samsung Tablet Pro Gen-2026",
-            "price_rub": 77793,
-            "update_time": "2026-03-05 21:44:06"
-        },
-        {
-            "model": "Samsung Tablet Pro Gen-2026",
-            "price_rub": 66814,
-            "update_time": "2026-03-05 21:44:09"
-        },
-        {
-            "model": "Samsung Tablet Pro Gen-2026",
-            "price_rub": 59585,
-            "update_time": "2026-03-05 21:44:13"
-        },
-        {
-            "model": "Samsung Tablet Pro Gen-2026",
-            "price_rub": 84394,
-            "update_time": "2026-03-05 21:44:18"
-        },
-        {
-            "model": "Samsung Tablet Pro Gen-2026",
-            "price_rub": 24409,
-            "update_time": "2026-03-05 21:44:21"
-        },
-        {
-            "model": "Samsung Tablet Pro Gen-2026",
-            "price_rub": 24531,
-            "update_time": "2026-03-05 21:44:25"
-        },
-        {
-            "model": "Samsung Tablet Pro Gen-2026",
-            "price_rub": 31973,
-            "update_time": "2026-03-05 21:44:30"
-        },
-        {
-            "model": "Samsung Tablet Pro Gen-2026",
-            "price_rub": 91188,
-            "update_time": "2026-03-05 21:44:33"
+            "model": "Samsung Pad Pro 2026 Edition V3",
+            "price_rub": "41,240 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         }
     ],
     "Apple": [
         {
-            "model": "Apple Tablet Pro Gen-2026",
-            "price_rub": 58557,
-            "update_time": "2026-03-05 21:44:37"
+            "model": "Apple Pad Pro 2026 Edition V1",
+            "price_rub": "72,876 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Apple Tablet Pro Gen-2026",
-            "price_rub": 80878,
-            "update_time": "2026-03-05 21:44:40"
+            "model": "Apple Pad Pro 2026 Edition V2",
+            "price_rub": "37,348 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Apple Tablet Pro Gen-2026",
-            "price_rub": 73256,
-            "update_time": "2026-03-05 21:44:44"
-        },
-        {
-            "model": "Apple Tablet Pro Gen-2026",
-            "price_rub": 26674,
-            "update_time": "2026-03-05 21:44:49"
-        },
-        {
-            "model": "Apple Tablet Pro Gen-2026",
-            "price_rub": 46180,
-            "update_time": "2026-03-05 21:44:53"
-        },
-        {
-            "model": "Apple Tablet Pro Gen-2026",
-            "price_rub": 27807,
-            "update_time": "2026-03-05 21:44:57"
-        },
-        {
-            "model": "Apple Tablet Pro Gen-2026",
-            "price_rub": 33606,
-            "update_time": "2026-03-05 21:45:02"
-        },
-        {
-            "model": "Apple Tablet Pro Gen-2026",
-            "price_rub": 93378,
-            "update_time": "2026-03-05 21:45:05"
-        },
-        {
-            "model": "Apple Tablet Pro Gen-2026",
-            "price_rub": 91956,
-            "update_time": "2026-03-05 21:45:10"
-        },
-        {
-            "model": "Apple Tablet Pro Gen-2026",
-            "price_rub": 79926,
-            "update_time": "2026-03-05 21:45:14"
+            "model": "Apple Pad Pro 2026 Edition V3",
+            "price_rub": "88,942 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         }
     ],
     "Realme": [
         {
-            "model": "Realme Tablet Pro Gen-2026",
-            "price_rub": 82609,
-            "update_time": "2026-03-05 21:45:16"
+            "model": "Realme Pad Pro 2026 Edition V1",
+            "price_rub": "56,389 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Realme Tablet Pro Gen-2026",
-            "price_rub": 70986,
-            "update_time": "2026-03-05 21:45:21"
+            "model": "Realme Pad Pro 2026 Edition V2",
+            "price_rub": "31,160 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Realme Tablet Pro Gen-2026",
-            "price_rub": 24171,
-            "update_time": "2026-03-05 21:45:25"
-        },
-        {
-            "model": "Realme Tablet Pro Gen-2026",
-            "price_rub": 23035,
-            "update_time": "2026-03-05 21:45:30"
-        },
-        {
-            "model": "Realme Tablet Pro Gen-2026",
-            "price_rub": 24267,
-            "update_time": "2026-03-05 21:45:34"
-        },
-        {
-            "model": "Realme Tablet Pro Gen-2026",
-            "price_rub": 79099,
-            "update_time": "2026-03-05 21:45:37"
-        },
-        {
-            "model": "Realme Tablet Pro Gen-2026",
-            "price_rub": 27237,
-            "update_time": "2026-03-05 21:45:40"
-        },
-        {
-            "model": "Realme Tablet Pro Gen-2026",
-            "price_rub": 80945,
-            "update_time": "2026-03-05 21:45:45"
-        },
-        {
-            "model": "Realme Tablet Pro Gen-2026",
-            "price_rub": 86918,
-            "update_time": "2026-03-05 21:45:50"
-        },
-        {
-            "model": "Realme Tablet Pro Gen-2026",
-            "price_rub": 88730,
-            "update_time": "2026-03-05 21:45:55"
+            "model": "Realme Pad Pro 2026 Edition V3",
+            "price_rub": "78,255 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         }
     ],
     "Honor": [
         {
-            "model": "Honor Tablet Pro Gen-2026",
-            "price_rub": 22317,
-            "update_time": "2026-03-05 21:45:59"
+            "model": "Honor Pad Pro 2026 Edition V1",
+            "price_rub": "70,439 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Honor Tablet Pro Gen-2026",
-            "price_rub": 20091,
-            "update_time": "2026-03-05 21:46:03"
+            "model": "Honor Pad Pro 2026 Edition V2",
+            "price_rub": "50,059 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Honor Tablet Pro Gen-2026",
-            "price_rub": 85413,
-            "update_time": "2026-03-05 21:46:05"
-        },
-        {
-            "model": "Honor Tablet Pro Gen-2026",
-            "price_rub": 25162,
-            "update_time": "2026-03-05 21:46:10"
-        },
-        {
-            "model": "Honor Tablet Pro Gen-2026",
-            "price_rub": 63689,
-            "update_time": "2026-03-05 21:46:14"
-        },
-        {
-            "model": "Honor Tablet Pro Gen-2026",
-            "price_rub": 23461,
-            "update_time": "2026-03-05 21:46:17"
-        },
-        {
-            "model": "Honor Tablet Pro Gen-2026",
-            "price_rub": 53546,
-            "update_time": "2026-03-05 21:46:22"
-        },
-        {
-            "model": "Honor Tablet Pro Gen-2026",
-            "price_rub": 31501,
-            "update_time": "2026-03-05 21:46:27"
-        },
-        {
-            "model": "Honor Tablet Pro Gen-2026",
-            "price_rub": 61389,
-            "update_time": "2026-03-05 21:46:29"
-        },
-        {
-            "model": "Honor Tablet Pro Gen-2026",
-            "price_rub": 40950,
-            "update_time": "2026-03-05 21:46:34"
+            "model": "Honor Pad Pro 2026 Edition V3",
+            "price_rub": "30,594 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         }
     ],
     "Lenovo": [
         {
-            "model": "Lenovo Tablet Pro Gen-2026",
-            "price_rub": 27476,
-            "update_time": "2026-03-05 21:46:38"
+            "model": "Lenovo Pad Pro 2026 Edition V1",
+            "price_rub": "78,008 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Lenovo Tablet Pro Gen-2026",
-            "price_rub": 28447,
-            "update_time": "2026-03-05 21:46:41"
+            "model": "Lenovo Pad Pro 2026 Edition V2",
+            "price_rub": "25,457 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "Lenovo Tablet Pro Gen-2026",
-            "price_rub": 19298,
-            "update_time": "2026-03-05 21:46:44"
-        },
-        {
-            "model": "Lenovo Tablet Pro Gen-2026",
-            "price_rub": 75799,
-            "update_time": "2026-03-05 21:46:48"
-        },
-        {
-            "model": "Lenovo Tablet Pro Gen-2026",
-            "price_rub": 18984,
-            "update_time": "2026-03-05 21:46:51"
-        },
-        {
-            "model": "Lenovo Tablet Pro Gen-2026",
-            "price_rub": 26393,
-            "update_time": "2026-03-05 21:46:54"
-        },
-        {
-            "model": "Lenovo Tablet Pro Gen-2026",
-            "price_rub": 91910,
-            "update_time": "2026-03-05 21:46:59"
-        },
-        {
-            "model": "Lenovo Tablet Pro Gen-2026",
-            "price_rub": 58824,
-            "update_time": "2026-03-05 21:47:03"
-        },
-        {
-            "model": "Lenovo Tablet Pro Gen-2026",
-            "price_rub": 20432,
-            "update_time": "2026-03-05 21:47:07"
-        },
-        {
-            "model": "Lenovo Tablet Pro Gen-2026",
-            "price_rub": 91398,
-            "update_time": "2026-03-05 21:47:10"
+            "model": "Lenovo Pad Pro 2026 Edition V3",
+            "price_rub": "39,803 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         }
     ],
     "OPPO": [
         {
-            "model": "OPPO Tablet Pro Gen-2026",
-            "price_rub": 56195,
-            "update_time": "2026-03-05 21:47:14"
+            "model": "OPPO Pad Pro 2026 Edition V1",
+            "price_rub": "59,705 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "OPPO Tablet Pro Gen-2026",
-            "price_rub": 82093,
-            "update_time": "2026-03-05 21:47:16"
+            "model": "OPPO Pad Pro 2026 Edition V2",
+            "price_rub": "71,399 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         },
         {
-            "model": "OPPO Tablet Pro Gen-2026",
-            "price_rub": 21142,
-            "update_time": "2026-03-05 21:47:19"
-        },
-        {
-            "model": "OPPO Tablet Pro Gen-2026",
-            "price_rub": 51034,
-            "update_time": "2026-03-05 21:47:22"
-        },
-        {
-            "model": "OPPO Tablet Pro Gen-2026",
-            "price_rub": 91943,
-            "update_time": "2026-03-05 21:47:27"
-        },
-        {
-            "model": "OPPO Tablet Pro Gen-2026",
-            "price_rub": 83831,
-            "update_time": "2026-03-05 21:47:31"
-        },
-        {
-            "model": "OPPO Tablet Pro Gen-2026",
-            "price_rub": 55008,
-            "update_time": "2026-03-05 21:47:34"
-        },
-        {
-            "model": "OPPO Tablet Pro Gen-2026",
-            "price_rub": 20478,
-            "update_time": "2026-03-05 21:47:37"
-        },
-        {
-            "model": "OPPO Tablet Pro Gen-2026",
-            "price_rub": 48648,
-            "update_time": "2026-03-05 21:47:41"
-        },
-        {
-            "model": "OPPO Tablet Pro Gen-2026",
-            "price_rub": 94888,
-            "update_time": "2026-03-05 21:47:44"
+            "model": "OPPO Pad Pro 2026 Edition V3",
+            "price_rub": "78,823 RUB",
+            "status": "In Stock (Moscow Warehouse)",
+            "update_time": "2026-03-05 21:54"
         }
     ]
 }
