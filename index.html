@@ -160,6 +160,24 @@
             ]
         };
         myChart.setOption(option);
+        // 这是自动填表的核心代码
+fetch('./data.json')
+  .then(response => response.json())
+  .then(allData => {
+    // 假设我们只看第一个型号 TECNO Megapad 2
+    const tablet = allData[0]; 
+    if (tablet && tablet.calibrated) {
+       // 1. 更新顶部同步时间
+       document.querySelector('.text-slate-400.font-mono').innerHTML = 'Status: <span class="text-green-500">● Live Sync: ' + tablet.last_update + '</span>';
+       
+       // 2. 更新 DNS 单元格的价格 (假设它是表格里第一个 price-low)
+       const dnsPrice = tablet.calibrated.dns ? tablet.calibrated.dns.price : 'N/A';
+       document.querySelector('td.price-low').innerText = dnsPrice.toLocaleString() + ' ₽';
+       
+       console.log("数据已成功从 data.json 注入前端！");
+    }
+  })
+  .catch(err => console.log("数据文件尚未生成，请运行 Action"));
     </script>
 </body>
 </html>
