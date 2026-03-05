@@ -31,5 +31,7 @@ jobs:
           git config --global user.name "DragonMap-Bot"
           git config --global user.email "bot@dragonmap.ai"
           git add data.json
-          git commit -m "V20 Data Update: $(date)" || echo "No changes"
-          git push
+          # 强制提交，记录当前的俄罗斯市场数据时间戳
+          git commit -m "V20 Data Update: $(date)" || echo "No changes to commit"
+          # 显式推送到 main 分支
+          git push origin main
