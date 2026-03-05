@@ -2,57 +2,64 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>RU Tablet Intelligence Command Center V20</title>
+    <title>DRAGON MAP V20 FINAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .best-price-highlight { background: linear-gradient(90deg, rgba(6, 182, 212, 0.1), transparent); border-left: 6px solid #06b6d4; }
+        .spec-tag { font-size: 9px; color: #64748b; border: 1px solid #1e293b; padding: 2px 6px; border-radius: 4px; }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-200 p-4 md:p-8">
-    <div class="max-w-7xl mx-auto">
-        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-slate-800 pb-6">
+<body class="bg-[#020617] text-slate-300 p-8 lg:p-20 font-sans">
+    <div class="max-w-[1920px] mx-auto">
+        <header class="flex flex-col lg:flex-row justify-between items-end mb-20 border-b border-slate-800 pb-12 gap-10">
             <div>
-                <h1 class="text-3xl font-black text-blue-500 italic tracking-tighter uppercase">RU.DATA COMMAND V20</h1>
-                <p class="text-slate-500 text-[10px] mt-1 font-mono uppercase">DNS / M.Video / Citilink / OZON / WB / Yandex / Price.ru</p>
+                <h1 class="text-8xl font-black text-white italic tracking-tighter leading-none uppercase">DRAGON.MAP V20</h1>
+                <div class="flex items-center gap-6 mt-6">
+                    <span class="bg-red-600 text-white text-[10px] px-4 py-1 font-black">PRO LEVEL SENSOR</span>
+                    <p id="stats" class="text-cyan-400 text-[10px] font-mono tracking-[0.5em] uppercase">10 Brands | 6 Channels | Deep Scan</p>
+                </div>
             </div>
-            <div id="sync-info" class="bg-slate-900 border border-slate-700 px-4 py-2 rounded text-xs font-mono text-green-400">SYNCING...</div>
+            <button onclick="window.location.reload()" class="bg-white text-black px-10 py-4 text-xs font-black uppercase hover:bg-cyan-500 transition-all">Refresh Data</button>
         </header>
-
-        <div class="bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-x-auto">
-            <table class="w-full text-left text-sm border-collapse">
-                <thead class="bg-slate-800/50 text-slate-500 text-[9px] font-bold uppercase tracking-widest">
+        <div class="bg-slate-900 border border-white/5 shadow-2xl overflow-hidden">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-slate-800 text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">
                     <tr>
-                        <th class="p-5 border-b border-slate-800">SKU & 配置</th>
-                        <th class="p-4 text-center border-b border-slate-800">DNS</th>
-                        <th class="p-4 text-center border-b border-slate-800">M.Video</th>
-                        <th class="p-4 text-center border-b border-slate-800">Citilink</th>
-                        <th class="p-4 text-center border-b border-slate-800 text-orange-400">OZON/WB</th>
-                        <th class="p-4 text-center border-b border-slate-800 text-yellow-500">比价网参考</th>
-                        <th class="p-4 text-right border-b border-slate-800">核定低价</th>
+                        <th class="p-10">Model Specification (SKU/ID)</th>
+                        <th class="p-4 text-center">DNS</th>
+                        <th class="p-4 text-center">M.Video</th>
+                        <th class="p-4 text-center text-orange-400">Ozon</th>
+                        <th class="p-4 text-center text-pink-400">WB</th>
+                        <th class="p-4 text-center text-yellow-400">Yandex</th>
+                        <th class="p-4 text-right pr-20 text-cyan-400">Best (RUB)</th>
                     </tr>
                 </thead>
-                <tbody id="data-grid" class="divide-y divide-slate-800">
-                    </tbody>
+                <tbody id="grid" class="divide-y divide-slate-800"></tbody>
             </table>
         </div>
     </div>
-
     <script>
-        fetch('./data.json').then(r => r.json()).then(data => {
-            document.getElementById('sync-info').innerText = 'LAST SYNC: ' + data[0].update;
-            const container = document.getElementById('data-grid');
-            container.innerHTML = data.map(item => `
-                <tr class="hover:bg-slate-800/40 transition-colors group">
-                    <td class="p-5 border-l-4 ${item.status.includes('✅') ? 'border-green-500' : 'border-amber-500'}">
-                        <div class="font-black text-white group-hover:text-blue-400 transition-colors">${item.brand} ${item.model}</div>
-                        <div class="text-[10px] text-slate-500 font-mono mt-0.5">${item.spec}</div>
-                        <div class="text-[9px] mt-1.5 px-1.5 py-0.5 bg-slate-800 inline-block rounded italic text-slate-400">${item.status}</div>
+        fetch('./data.json').then(r => r.json()).then(res => {
+            document.getElementById('stats').innerText += ` | SKU COUNT: ${res.sku_count}`;
+            const container = document.getElementById('grid');
+            container.innerHTML = res.items.map(item => `
+                <tr class="hover:bg-white/[0.02] transition-all">
+                    <td class="p-10 best-price-highlight">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-white font-black text-sm uppercase">${item.brand}</span>
+                            <span class="spec-tag">${item.id.substring(0,8)}</span>
+                        </div>
+                        <div class="text-2xl text-slate-100 font-bold tracking-tighter">${item.model}</div>
+                        <div class="text-[10px] text-slate-600 font-mono mt-3 uppercase tracking-widest">${item.spec}</div>
                     </td>
-                    <td class="p-4 text-center font-mono">${item.prices.dns?.toLocaleString() || '--'}</td>
-                    <td class="p-4 text-center font-mono">${item.prices.mvideo?.toLocaleString() || '--'}</td>
-                    <td class="p-4 text-center font-mono">${item.prices.citilink?.toLocaleString() || '--'}</td>
-                    <td class="p-4 text-center font-mono text-orange-300">${(item.prices.ozon || item.prices.wildberries || '--').toLocaleString()}</td>
-                    <td class="p-4 text-center font-mono text-yellow-500 italic">${item.prices.fallback?.toLocaleString() || item.prices.fallback_market?.toLocaleString() || '--'}</td>
-                    <td class="p-4 text-right font-black text-blue-400 text-xl tracking-tighter">${item.best_price.toLocaleString()} ₽</td>
-                </tr>
-            `).join('');
+                    ${['dns','mvideo','ozon','wildberries','yandex'].map(ch => `
+                        <td class="p-4 text-center font-mono ${item.prices[ch] > 0 ? 'text-slate-200' : 'text-slate-900'}">
+                            ${item.prices[ch] > 0 ? item.prices[ch].toLocaleString() : '---'}
+                        </td>`).join('')}
+                    <td class="p-4 text-right pr-20">
+                        <div class="text-6xl font-black text-cyan-400 italic tracking-tighter">${item.best.toLocaleString()}</div>
+                    </td>
+                </tr>`).join('');
         });
     </script>
 </body>
