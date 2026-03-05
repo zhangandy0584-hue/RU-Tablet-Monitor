@@ -1,6 +1,522 @@
 {
-  "items": [],
-  "raw_dict": {},
-  "update": "2026-03-05 21:18",
-  "sku_count": 0
+    "TECNO": [
+        {
+            "model": "TECNO Tablet Pro Gen-2026",
+            "price_rub": 20083,
+            "update_time": "2026-03-05 21:34:42"
+        },
+        {
+            "model": "TECNO Tablet Pro Gen-2026",
+            "price_rub": 31780,
+            "update_time": "2026-03-05 21:34:46"
+        },
+        {
+            "model": "TECNO Tablet Pro Gen-2026",
+            "price_rub": 49814,
+            "update_time": "2026-03-05 21:34:49"
+        },
+        {
+            "model": "TECNO Tablet Pro Gen-2026",
+            "price_rub": 25680,
+            "update_time": "2026-03-05 21:34:54"
+        },
+        {
+            "model": "TECNO Tablet Pro Gen-2026",
+            "price_rub": 84471,
+            "update_time": "2026-03-05 21:34:59"
+        },
+        {
+            "model": "TECNO Tablet Pro Gen-2026",
+            "price_rub": 23391,
+            "update_time": "2026-03-05 21:35:02"
+        },
+        {
+            "model": "TECNO Tablet Pro Gen-2026",
+            "price_rub": 56567,
+            "update_time": "2026-03-05 21:35:06"
+        },
+        {
+            "model": "TECNO Tablet Pro Gen-2026",
+            "price_rub": 48010,
+            "update_time": "2026-03-05 21:35:10"
+        },
+        {
+            "model": "TECNO Tablet Pro Gen-2026",
+            "price_rub": 42477,
+            "update_time": "2026-03-05 21:35:13"
+        },
+        {
+            "model": "TECNO Tablet Pro Gen-2026",
+            "price_rub": 42011,
+            "update_time": "2026-03-05 21:35:17"
+        }
+    ],
+    "Infinix": [
+        {
+            "model": "Infinix Tablet Pro Gen-2026",
+            "price_rub": 71582,
+            "update_time": "2026-03-05 21:35:22"
+        },
+        {
+            "model": "Infinix Tablet Pro Gen-2026",
+            "price_rub": 79262,
+            "update_time": "2026-03-05 21:35:26"
+        },
+        {
+            "model": "Infinix Tablet Pro Gen-2026",
+            "price_rub": 59301,
+            "update_time": "2026-03-05 21:35:31"
+        },
+        {
+            "model": "Infinix Tablet Pro Gen-2026",
+            "price_rub": 86680,
+            "update_time": "2026-03-05 21:35:35"
+        },
+        {
+            "model": "Infinix Tablet Pro Gen-2026",
+            "price_rub": 50779,
+            "update_time": "2026-03-05 21:35:37"
+        },
+        {
+            "model": "Infinix Tablet Pro Gen-2026",
+            "price_rub": 39788,
+            "update_time": "2026-03-05 21:35:40"
+        },
+        {
+            "model": "Infinix Tablet Pro Gen-2026",
+            "price_rub": 92986,
+            "update_time": "2026-03-05 21:35:44"
+        },
+        {
+            "model": "Infinix Tablet Pro Gen-2026",
+            "price_rub": 80836,
+            "update_time": "2026-03-05 21:35:48"
+        },
+        {
+            "model": "Infinix Tablet Pro Gen-2026",
+            "price_rub": 39924,
+            "update_time": "2026-03-05 21:35:51"
+        },
+        {
+            "model": "Infinix Tablet Pro Gen-2026",
+            "price_rub": 88297,
+            "update_time": "2026-03-05 21:35:56"
+        }
+    ],
+    "Xiaomi": [
+        {
+            "model": "Xiaomi Tablet Pro Gen-2026",
+            "price_rub": 75194,
+            "update_time": "2026-03-05 21:36:00"
+        },
+        {
+            "model": "Xiaomi Tablet Pro Gen-2026",
+            "price_rub": 27740,
+            "update_time": "2026-03-05 21:36:05"
+        },
+        {
+            "model": "Xiaomi Tablet Pro Gen-2026",
+            "price_rub": 18145,
+            "update_time": "2026-03-05 21:36:09"
+        },
+        {
+            "model": "Xiaomi Tablet Pro Gen-2026",
+            "price_rub": 48270,
+            "update_time": "2026-03-05 21:36:14"
+        },
+        {
+            "model": "Xiaomi Tablet Pro Gen-2026",
+            "price_rub": 74597,
+            "update_time": "2026-03-05 21:36:17"
+        },
+        {
+            "model": "Xiaomi Tablet Pro Gen-2026",
+            "price_rub": 53251,
+            "update_time": "2026-03-05 21:36:22"
+        },
+        {
+            "model": "Xiaomi Tablet Pro Gen-2026",
+            "price_rub": 48824,
+            "update_time": "2026-03-05 21:36:27"
+        },
+        {
+            "model": "Xiaomi Tablet Pro Gen-2026",
+            "price_rub": 90830,
+            "update_time": "2026-03-05 21:36:31"
+        },
+        {
+            "model": "Xiaomi Tablet Pro Gen-2026",
+            "price_rub": 54956,
+            "update_time": "2026-03-05 21:36:35"
+        },
+        {
+            "model": "Xiaomi Tablet Pro Gen-2026",
+            "price_rub": 75087,
+            "update_time": "2026-03-05 21:36:38"
+        }
+    ],
+    "Huawei": [
+        {
+            "model": "Huawei Tablet Pro Gen-2026",
+            "price_rub": 83326,
+            "update_time": "2026-03-05 21:36:41"
+        },
+        {
+            "model": "Huawei Tablet Pro Gen-2026",
+            "price_rub": 71585,
+            "update_time": "2026-03-05 21:36:45"
+        },
+        {
+            "model": "Huawei Tablet Pro Gen-2026",
+            "price_rub": 26602,
+            "update_time": "2026-03-05 21:36:49"
+        },
+        {
+            "model": "Huawei Tablet Pro Gen-2026",
+            "price_rub": 27536,
+            "update_time": "2026-03-05 21:36:52"
+        },
+        {
+            "model": "Huawei Tablet Pro Gen-2026",
+            "price_rub": 86507,
+            "update_time": "2026-03-05 21:36:55"
+        },
+        {
+            "model": "Huawei Tablet Pro Gen-2026",
+            "price_rub": 54572,
+            "update_time": "2026-03-05 21:36:59"
+        },
+        {
+            "model": "Huawei Tablet Pro Gen-2026",
+            "price_rub": 91028,
+            "update_time": "2026-03-05 21:37:03"
+        },
+        {
+            "model": "Huawei Tablet Pro Gen-2026",
+            "price_rub": 75578,
+            "update_time": "2026-03-05 21:37:06"
+        },
+        {
+            "model": "Huawei Tablet Pro Gen-2026",
+            "price_rub": 47270,
+            "update_time": "2026-03-05 21:37:09"
+        },
+        {
+            "model": "Huawei Tablet Pro Gen-2026",
+            "price_rub": 21588,
+            "update_time": "2026-03-05 21:37:13"
+        }
+    ],
+    "Samsung": [
+        {
+            "model": "Samsung Tablet Pro Gen-2026",
+            "price_rub": 24570,
+            "update_time": "2026-03-05 21:37:18"
+        },
+        {
+            "model": "Samsung Tablet Pro Gen-2026",
+            "price_rub": 25093,
+            "update_time": "2026-03-05 21:37:20"
+        },
+        {
+            "model": "Samsung Tablet Pro Gen-2026",
+            "price_rub": 86430,
+            "update_time": "2026-03-05 21:37:24"
+        },
+        {
+            "model": "Samsung Tablet Pro Gen-2026",
+            "price_rub": 64203,
+            "update_time": "2026-03-05 21:37:27"
+        },
+        {
+            "model": "Samsung Tablet Pro Gen-2026",
+            "price_rub": 40266,
+            "update_time": "2026-03-05 21:37:30"
+        },
+        {
+            "model": "Samsung Tablet Pro Gen-2026",
+            "price_rub": 45561,
+            "update_time": "2026-03-05 21:37:33"
+        },
+        {
+            "model": "Samsung Tablet Pro Gen-2026",
+            "price_rub": 58406,
+            "update_time": "2026-03-05 21:37:36"
+        },
+        {
+            "model": "Samsung Tablet Pro Gen-2026",
+            "price_rub": 42602,
+            "update_time": "2026-03-05 21:37:41"
+        },
+        {
+            "model": "Samsung Tablet Pro Gen-2026",
+            "price_rub": 57828,
+            "update_time": "2026-03-05 21:37:43"
+        },
+        {
+            "model": "Samsung Tablet Pro Gen-2026",
+            "price_rub": 80234,
+            "update_time": "2026-03-05 21:37:46"
+        }
+    ],
+    "Apple": [
+        {
+            "model": "Apple Tablet Pro Gen-2026",
+            "price_rub": 36247,
+            "update_time": "2026-03-05 21:37:50"
+        },
+        {
+            "model": "Apple Tablet Pro Gen-2026",
+            "price_rub": 70208,
+            "update_time": "2026-03-05 21:37:53"
+        },
+        {
+            "model": "Apple Tablet Pro Gen-2026",
+            "price_rub": 42101,
+            "update_time": "2026-03-05 21:37:58"
+        },
+        {
+            "model": "Apple Tablet Pro Gen-2026",
+            "price_rub": 38586,
+            "update_time": "2026-03-05 21:38:03"
+        },
+        {
+            "model": "Apple Tablet Pro Gen-2026",
+            "price_rub": 47062,
+            "update_time": "2026-03-05 21:38:05"
+        },
+        {
+            "model": "Apple Tablet Pro Gen-2026",
+            "price_rub": 63089,
+            "update_time": "2026-03-05 21:38:08"
+        },
+        {
+            "model": "Apple Tablet Pro Gen-2026",
+            "price_rub": 29852,
+            "update_time": "2026-03-05 21:38:12"
+        },
+        {
+            "model": "Apple Tablet Pro Gen-2026",
+            "price_rub": 53341,
+            "update_time": "2026-03-05 21:38:16"
+        },
+        {
+            "model": "Apple Tablet Pro Gen-2026",
+            "price_rub": 53113,
+            "update_time": "2026-03-05 21:38:19"
+        },
+        {
+            "model": "Apple Tablet Pro Gen-2026",
+            "price_rub": 32232,
+            "update_time": "2026-03-05 21:38:24"
+        }
+    ],
+    "Realme": [
+        {
+            "model": "Realme Tablet Pro Gen-2026",
+            "price_rub": 26931,
+            "update_time": "2026-03-05 21:38:26"
+        },
+        {
+            "model": "Realme Tablet Pro Gen-2026",
+            "price_rub": 27250,
+            "update_time": "2026-03-05 21:38:31"
+        },
+        {
+            "model": "Realme Tablet Pro Gen-2026",
+            "price_rub": 52913,
+            "update_time": "2026-03-05 21:38:35"
+        },
+        {
+            "model": "Realme Tablet Pro Gen-2026",
+            "price_rub": 53124,
+            "update_time": "2026-03-05 21:38:38"
+        },
+        {
+            "model": "Realme Tablet Pro Gen-2026",
+            "price_rub": 73054,
+            "update_time": "2026-03-05 21:38:41"
+        },
+        {
+            "model": "Realme Tablet Pro Gen-2026",
+            "price_rub": 50327,
+            "update_time": "2026-03-05 21:38:44"
+        },
+        {
+            "model": "Realme Tablet Pro Gen-2026",
+            "price_rub": 52373,
+            "update_time": "2026-03-05 21:38:49"
+        },
+        {
+            "model": "Realme Tablet Pro Gen-2026",
+            "price_rub": 20364,
+            "update_time": "2026-03-05 21:38:52"
+        },
+        {
+            "model": "Realme Tablet Pro Gen-2026",
+            "price_rub": 54727,
+            "update_time": "2026-03-05 21:38:56"
+        },
+        {
+            "model": "Realme Tablet Pro Gen-2026",
+            "price_rub": 81984,
+            "update_time": "2026-03-05 21:39:00"
+        }
+    ],
+    "Honor": [
+        {
+            "model": "Honor Tablet Pro Gen-2026",
+            "price_rub": 50178,
+            "update_time": "2026-03-05 21:39:03"
+        },
+        {
+            "model": "Honor Tablet Pro Gen-2026",
+            "price_rub": 93188,
+            "update_time": "2026-03-05 21:39:08"
+        },
+        {
+            "model": "Honor Tablet Pro Gen-2026",
+            "price_rub": 91378,
+            "update_time": "2026-03-05 21:39:11"
+        },
+        {
+            "model": "Honor Tablet Pro Gen-2026",
+            "price_rub": 70141,
+            "update_time": "2026-03-05 21:39:15"
+        },
+        {
+            "model": "Honor Tablet Pro Gen-2026",
+            "price_rub": 92812,
+            "update_time": "2026-03-05 21:39:19"
+        },
+        {
+            "model": "Honor Tablet Pro Gen-2026",
+            "price_rub": 42475,
+            "update_time": "2026-03-05 21:39:24"
+        },
+        {
+            "model": "Honor Tablet Pro Gen-2026",
+            "price_rub": 42415,
+            "update_time": "2026-03-05 21:39:27"
+        },
+        {
+            "model": "Honor Tablet Pro Gen-2026",
+            "price_rub": 70448,
+            "update_time": "2026-03-05 21:39:31"
+        },
+        {
+            "model": "Honor Tablet Pro Gen-2026",
+            "price_rub": 75278,
+            "update_time": "2026-03-05 21:39:34"
+        },
+        {
+            "model": "Honor Tablet Pro Gen-2026",
+            "price_rub": 76796,
+            "update_time": "2026-03-05 21:39:38"
+        }
+    ],
+    "Lenovo": [
+        {
+            "model": "Lenovo Tablet Pro Gen-2026",
+            "price_rub": 47263,
+            "update_time": "2026-03-05 21:39:41"
+        },
+        {
+            "model": "Lenovo Tablet Pro Gen-2026",
+            "price_rub": 37127,
+            "update_time": "2026-03-05 21:39:44"
+        },
+        {
+            "model": "Lenovo Tablet Pro Gen-2026",
+            "price_rub": 91715,
+            "update_time": "2026-03-05 21:39:47"
+        },
+        {
+            "model": "Lenovo Tablet Pro Gen-2026",
+            "price_rub": 41482,
+            "update_time": "2026-03-05 21:39:50"
+        },
+        {
+            "model": "Lenovo Tablet Pro Gen-2026",
+            "price_rub": 46291,
+            "update_time": "2026-03-05 21:39:53"
+        },
+        {
+            "model": "Lenovo Tablet Pro Gen-2026",
+            "price_rub": 57030,
+            "update_time": "2026-03-05 21:39:58"
+        },
+        {
+            "model": "Lenovo Tablet Pro Gen-2026",
+            "price_rub": 26616,
+            "update_time": "2026-03-05 21:40:01"
+        },
+        {
+            "model": "Lenovo Tablet Pro Gen-2026",
+            "price_rub": 54845,
+            "update_time": "2026-03-05 21:40:04"
+        },
+        {
+            "model": "Lenovo Tablet Pro Gen-2026",
+            "price_rub": 93494,
+            "update_time": "2026-03-05 21:40:08"
+        },
+        {
+            "model": "Lenovo Tablet Pro Gen-2026",
+            "price_rub": 32381,
+            "update_time": "2026-03-05 21:40:12"
+        }
+    ],
+    "OPPO": [
+        {
+            "model": "OPPO Tablet Pro Gen-2026",
+            "price_rub": 82605,
+            "update_time": "2026-03-05 21:40:16"
+        },
+        {
+            "model": "OPPO Tablet Pro Gen-2026",
+            "price_rub": 73277,
+            "update_time": "2026-03-05 21:40:20"
+        },
+        {
+            "model": "OPPO Tablet Pro Gen-2026",
+            "price_rub": 21401,
+            "update_time": "2026-03-05 21:40:23"
+        },
+        {
+            "model": "OPPO Tablet Pro Gen-2026",
+            "price_rub": 51837,
+            "update_time": "2026-03-05 21:40:28"
+        },
+        {
+            "model": "OPPO Tablet Pro Gen-2026",
+            "price_rub": 81673,
+            "update_time": "2026-03-05 21:40:32"
+        },
+        {
+            "model": "OPPO Tablet Pro Gen-2026",
+            "price_rub": 80933,
+            "update_time": "2026-03-05 21:40:37"
+        },
+        {
+            "model": "OPPO Tablet Pro Gen-2026",
+            "price_rub": 82860,
+            "update_time": "2026-03-05 21:40:40"
+        },
+        {
+            "model": "OPPO Tablet Pro Gen-2026",
+            "price_rub": 69786,
+            "update_time": "2026-03-05 21:40:45"
+        },
+        {
+            "model": "OPPO Tablet Pro Gen-2026",
+            "price_rub": 57770,
+            "update_time": "2026-03-05 21:40:49"
+        },
+        {
+            "model": "OPPO Tablet Pro Gen-2026",
+            "price_rub": 23805,
+            "update_time": "2026-03-05 21:40:53"
+        }
+    ]
 }
