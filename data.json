@@ -1,0 +1,22 @@
+[
+  {
+    "brand": "TECNO",
+    "model": "Megapad 2",
+    "spec": "12/256",
+    "urls": {
+      "dns": "https://www.dns-shop.ru/product/2aab3723b463d21a/",
+      "yandex": "https://market.yandex.ru/"
+    },
+    "calibrated": {
+      "dns": {
+        "price": null,
+        "status": "No Data"
+      },
+      "yandex": {
+        "price": null,
+        "status": "No Data"
+      }
+    },
+    "last_update": "2026-03-05 19:16:43"
+  }
+]
