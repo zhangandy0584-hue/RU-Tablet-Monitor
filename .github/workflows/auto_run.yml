@@ -1,0 +1,32 @@
+name: 俄罗斯平板价格自动抓取计划
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # 这行代表每6小时自动跑一次
+  workflow_dispatch:      # 这行代表你可以手动点击“运行”按钮测试
+
+jobs:
+  run_scraper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 步骤1-拉取代码
+        uses: actions/checkout@v3
+
+      - name: 步骤2-安装Python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 步骤3-安装必备工具
+        run: pip install requests beautifulsoup4
+
+      - name: 步骤4-执行爬虫脚本
+        run: python scraper.py
+
+      - name: 步骤5-将抓取的数据存回仓库
+        run: |
+          git config --global user.name "Robot-Assistant"
+          git config --global user.email "bot@github.com"
+          git add data.json
+          git commit -m "自动更新最新价格数据" || exit 0
+          git push
