@@ -1,66 +1,42 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>DRAGON MAP V20 FINAL</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>RU Tablet Monitor V20</title>
     <style>
-        .best-price-highlight { background: linear-gradient(90deg, rgba(6, 182, 212, 0.1), transparent); border-left: 6px solid #06b6d4; }
-        .spec-tag { font-size: 9px; color: #64748b; border: 1px solid #1e293b; padding: 2px 6px; border-radius: 4px; }
+        body { font-family: sans-serif; background: #f0f2f5; padding: 20px; }
+        .box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background: #003366; color: white; padding: 10px; text-align: left; }
+        td { padding: 10px; border-bottom: 1px solid #eee; }
+        .price { color: #d32f2f; font-weight: bold; }
+        .tag { background: #e3f2fd; color: #0d47a1; padding: 2px 5px; border-radius: 3px; font-size: 12px; }
     </style>
 </head>
-<body class="bg-[#020617] text-slate-300 p-8 lg:p-20 font-sans">
-    <div class="max-w-[1920px] mx-auto">
-        <header class="flex flex-col lg:flex-row justify-between items-end mb-20 border-b border-slate-800 pb-12 gap-10">
-            <div>
-                <h1 class="text-8xl font-black text-white italic tracking-tighter leading-none uppercase">DRAGON.MAP V20</h1>
-                <div class="flex items-center gap-6 mt-6">
-                    <span class="bg-red-600 text-white text-[10px] px-4 py-1 font-black">PRO LEVEL SENSOR</span>
-                    <p id="stats" class="text-cyan-400 text-[10px] font-mono tracking-[0.5em] uppercase">10 Brands | 6 Channels | Deep Scan</p>
-                </div>
-            </div>
-            <button onclick="window.location.reload()" class="bg-white text-black px-10 py-4 text-xs font-black uppercase hover:bg-cyan-500 transition-all">Refresh Data</button>
-        </header>
-        <div class="bg-slate-900 border border-white/5 shadow-2xl overflow-hidden">
-            <table class="w-full text-left border-collapse">
-                <thead class="bg-slate-800 text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">
-                    <tr>
-                        <th class="p-10">Model Specification (SKU/ID)</th>
-                        <th class="p-4 text-center">DNS</th>
-                        <th class="p-4 text-center">M.Video</th>
-                        <th class="p-4 text-center text-orange-400">Ozon</th>
-                        <th class="p-4 text-center text-pink-400">WB</th>
-                        <th class="p-4 text-center text-yellow-400">Yandex</th>
-                        <th class="p-4 text-right pr-20 text-cyan-400">Best (RUB)</th>
-                    </tr>
-                </thead>
-                <tbody id="grid" class="divide-y divide-slate-800"></tbody>
-            </table>
-        </div>
+<body>
+    <div class="box">
+        <h2>莫斯科平板市场行情 (V20.0)</h2>
+        <p id="info">正在获取最新情报...</p>
+        <table>
+            <thead><tr><th>品牌</th><th>型号</th><th>配置</th><th>底价 (RUB)</th></tr></thead>
+            <tbody id="list"></tbody>
+        </table>
     </div>
     <script>
-        fetch('./data.json').then(r => r.json()).then(res => {
-            document.getElementById('stats').innerText += ` | SKU COUNT: ${res.sku_count}`;
-            const container = document.getElementById('grid');
-            container.innerHTML = res.items.map(item => `
-                <tr class="hover:bg-white/[0.02] transition-all">
-                    <td class="p-10 best-price-highlight">
-                        <div class="flex items-center gap-3 mb-2">
-                            <span class="text-white font-black text-sm uppercase">${item.brand}</span>
-                            <span class="spec-tag">${item.id.substring(0,8)}</span>
-                        </div>
-                        <div class="text-2xl text-slate-100 font-bold tracking-tighter">${item.model}</div>
-                        <div class="text-[10px] text-slate-600 font-mono mt-3 uppercase tracking-widest">${item.spec}</div>
-                    </td>
-                    ${['dns','mvideo','ozon','wildberries','yandex'].map(ch => `
-                        <td class="p-4 text-center font-mono ${item.prices[ch] > 0 ? 'text-slate-200' : 'text-slate-900'}">
-                            ${item.prices[ch] > 0 ? item.prices[ch].toLocaleString() : '---'}
-                        </td>`).join('')}
-                    <td class="p-4 text-right pr-20">
-                        <div class="text-6xl font-black text-cyan-400 italic tracking-tighter">${item.best.toLocaleString()}</div>
-                    </td>
-                </tr>`).join('');
-        });
+        fetch('data.json?t=' + Date.now())
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('info').innerText = `最后同步: ${data.update} | 监控中: ${data.sku_count}`;
+                const html = data.items.map(i => `
+                    <tr>
+                        <td><span class="tag">${i.brand}</span></td>
+                        <td>${i.model}</td>
+                        <td>${i.spec}</td>
+                        <td class="price">${i.best.toLocaleString()} ₽</td>
+                    </tr>
+                `).join('');
+                document.getElementById('list').innerHTML = html;
+            });
     </script>
 </body>
 </html>
