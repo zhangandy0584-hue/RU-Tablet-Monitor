@@ -1,12 +1,12 @@
 name: RU Market Auto-Sync V25
 
 on:
-  workflow_dispatch: # 手动控制
+  workflow_dispatch:
   schedule:
-    - cron: '0 2 * * *' # 每天北京时间 10:00 自动运行
+    - cron: '0 2 * * *'
 
 permissions:
-  contents: write # 必须：确保有权修改 data.json
+  contents: write # 必须：授予 Actions 修改仓库文件的权限
 
 jobs:
   scrape_job:
@@ -20,17 +20,24 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: 3. 安装 requests
+      - name: 3. 安装依赖
         run: pip install requests
 
       - name: 4. 运行 V25 穿透引擎
-        timeout-minutes: 90 # 留足延迟对抗时间
+        timeout-minutes: 90
         run: python scraper.py
 
-      - name: 5. 自动同步至数据中心
+      - name: 5. 使用 Token 安全同步
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "Market-Intelligence-Bot"
           git config --global user.email "bot@market.ru"
           git add data.json
-          git commit -m "V25 Intelligence Update: $(date)" || echo "No changes"
-          git push origin main
+          # 只有在数据真正变化时才提交，防止空提交报错
+          if ! git diff --cached --quiet; then
+            git commit -m "V25 Intelligence Update: $(date)"
+            git push origin HEAD:${{ github.ref }}
+          else
+            echo "No changes in data.json"
+          fi
