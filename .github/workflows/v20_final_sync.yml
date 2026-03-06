@@ -1,38 +1,36 @@
-name: RU Market Auto-Sync V23
+name: RU Market Auto-Sync V25
 
 on:
-  workflow_dispatch: # 手动点火按钮
+  workflow_dispatch: # 手动控制
   schedule:
-    - cron: '0 2 * * *' # 每天北京时间上午10点自动同步
+    - cron: '0 2 * * *' # 每天北京时间 10:00 自动运行
 
 permissions:
-  contents: write # 核心：确保有权写回 data.json
+  contents: write # 必须：确保有权修改 data.json
 
 jobs:
-  build:
+  scrape_job:
     runs-on: ubuntu-latest
     steps:
-      - name: 1. 拉取代码
+      - name: 1. 拉取仓库代码
         uses: actions/checkout@v3
 
-      - name: 2. 部署 Python
+      - name: 2. 初始化环境
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: 3. 安装依赖
+      - name: 3. 安装 requests
         run: pip install requests
 
-      - name: 4. 运行 V23 穿透引擎
-        timeout-minutes: 60
-        continue-on-error: true # 关键：防止单个品牌抓取失败导致整个任务熄火
+      - name: 4. 运行 V25 穿透引擎
+        timeout-minutes: 90 # 留足延迟对抗时间
         run: python scraper.py
 
-      - name: 5. 自动同步数据
+      - name: 5. 自动同步至数据中心
         run: |
-          git config --global user.name "Market-Bot"
+          git config --global user.name "Market-Intelligence-Bot"
           git config --global user.email "bot@market.ru"
           git add data.json
-          # 即使数据没有变化，也允许提交（避免报错）
-          git commit -m "V23 Sync Intelligence: $(date)" || echo "No changes to commit"
+          git commit -m "V25 Intelligence Update: $(date)" || echo "No changes"
           git push origin main
