@@ -2,40 +2,45 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>RU Tablet Monitor V20</title>
+    <title>莫斯科平板战情中心 V23</title>
     <style>
-        body { font-family: sans-serif; background: #f0f2f5; padding: 20px; }
-        .box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        body { font-family: sans-serif; background: #f4f7f9; padding: 20px; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th { background: #003366; color: white; padding: 10px; text-align: left; }
-        td { padding: 10px; border-bottom: 1px solid #eee; }
-        .price { color: #d32f2f; font-weight: bold; }
-        .tag { background: #e3f2fd; color: #0d47a1; padding: 2px 5px; border-radius: 3px; font-size: 12px; }
+        th { background: #1a73e8; color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+        .brand { font-weight: bold; color: #1a73e8; }
+        .price { color: #d93025; font-weight: bold; }
+        .sync-info { font-size: 0.8em; color: #666; margin-bottom: 10px; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h2>莫斯科平板市场行情 (V20.0)</h2>
-        <p id="info">正在获取最新情报...</p>
+    <div class="card">
+        <h2>RU Market Monitor <small>V23.0</small></h2>
+        <div id="status" class="sync-info">正在获取最新情报...</div>
         <table>
-            <thead><tr><th>品牌</th><th>型号</th><th>配置</th><th>底价 (RUB)</th></tr></thead>
+            <thead>
+                <tr><th>品牌</th><th>规格</th><th>市场参考价 (RUB)</th></tr>
+            </thead>
             <tbody id="list"></tbody>
         </table>
     </div>
     <script>
-        fetch('data.json?t=' + Date.now())
+        // 加入随机参数防止缓存
+        fetch('data.json?v=' + Date.now())
             .then(r => r.json())
             .then(data => {
-                document.getElementById('info').innerText = `最后同步: ${data.update} | 监控中: ${data.sku_count}`;
-                const html = data.items.map(i => `
+                document.getElementById('status').innerText = `最后同步: ${data.update} | SKU总数: ${data.sku_count}`;
+                const tbody = document.getElementById('list');
+                tbody.innerHTML = data.items.map(item => `
                     <tr>
-                        <td><span class="tag">${i.brand}</span></td>
-                        <td>${i.model}</td>
-                        <td>${i.spec}</td>
-                        <td class="price">${i.best.toLocaleString()} ₽</td>
+                        <td class="brand">${item.brand}</td>
+                        <td>${item.spec}</td>
+                        <td class="price">${item.best.toLocaleString()} ₽</td>
                     </tr>
                 `).join('');
-                document.getElementById('list').innerHTML = html;
+            }).catch(() => {
+                document.getElementById('status').innerText = "暂无数据，请先运行 Actions 任务。";
             });
     </script>
 </body>
