@@ -1,46 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>莫斯科平板战情中心 V23</title>
+    <title>俄区平板情报中心 V25</title>
     <style>
-        body { font-family: sans-serif; background: #f4f7f9; padding: 20px; }
-        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th { background: #1a73e8; color: white; padding: 12px; text-align: left; }
+        body { font-family: -apple-system, sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 10px; }
+        .meta { color: #666; font-size: 0.9em; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f8f9fa; color: #5f6368; padding: 12px; text-align: left; border-bottom: 2px solid #eee; }
         td { padding: 12px; border-bottom: 1px solid #eee; }
-        .brand { font-weight: bold; color: #1a73e8; }
         .price { color: #d93025; font-weight: bold; }
-        .sync-info { font-size: 0.8em; color: #666; margin-bottom: 10px; }
+        .brand-tag { background: #e8f0fe; color: #1a73e8; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2>RU Market Monitor <small>V23.0</small></h2>
-        <div id="status" class="sync-info">正在获取最新情报...</div>
+    <div class="container">
+        <h1>RU Tablet Intelligence Center <small>V25.0</small></h1>
+        <div id="meta" class="meta">正在连接远程情报库...</div>
         <table>
             <thead>
-                <tr><th>品牌</th><th>规格</th><th>市场参考价 (RUB)</th></tr>
+                <tr><th>品牌</th><th>规格 (SKU)</th><th>实时底价 (RUB)</th></tr>
             </thead>
-            <tbody id="list"></tbody>
+            <tbody id="content"></tbody>
         </table>
     </div>
     <script>
-        // 加入随机参数防止缓存
-        fetch('data.json?v=' + Date.now())
+        fetch('data.json?t=' + Date.now())
             .then(r => r.json())
             .then(data => {
-                document.getElementById('status').innerText = `最后同步: ${data.update} | SKU总数: ${data.sku_count}`;
-                const tbody = document.getElementById('list');
-                tbody.innerHTML = data.items.map(item => `
+                document.getElementById('meta').innerText = `情报来源: Google SERP Snapshot | 最后同步: ${data.update} | 监测 SKU: ${data.sku_count}`;
+                const html = data.items.map(i => `
                     <tr>
-                        <td class="brand">${item.brand}</td>
-                        <td>${item.spec}</td>
-                        <td class="price">${item.best.toLocaleString()} ₽</td>
+                        <td><span class="brand-tag">${i.brand}</span></td>
+                        <td>${i.spec}</td>
+                        <td class="price">${i.best.toLocaleString()} ₽</td>
                     </tr>
                 `).join('');
-            }).catch(() => {
-                document.getElementById('status').innerText = "暂无数据，请先运行 Actions 任务。";
+                document.getElementById('content').innerHTML = html;
+            }).catch(e => {
+                document.getElementById('meta').innerText = "数据同步中，请稍后刷新...";
             });
     </script>
 </body>
